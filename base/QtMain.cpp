@@ -16,28 +16,13 @@
 #include <QSystemScreenSaver>
 #endif
 #include "QtMain.h"
+#include "MainUI.h"
 
 InputState* input_state;
 
 void LaunchBrowser(const char *url)
 {
 	QDesktopServices::openUrl(QUrl(url));
-}
-
-void SimulateGamepad(InputState *input) {
-	input->pad_lstick_x = 0;
-	input->pad_lstick_y = 0;
-	input->pad_rstick_x = 0;
-	input->pad_rstick_y = 0;
-
-	if (input->pad_buttons & PAD_BUTTON_JOY_UP)
-		input->pad_lstick_y=1;
-	else if (input->pad_buttons & PAD_BUTTON_JOY_DOWN)
-		input->pad_lstick_y=-1;
-	if (input->pad_buttons & PAD_BUTTON_JOY_LEFT)
-		input->pad_lstick_x=-1;
-	else if (input->pad_buttons & PAD_BUTTON_JOY_RIGHT)
-		input->pad_lstick_x=1;
 }
 
 float CalculateDPIScale()
